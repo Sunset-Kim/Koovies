@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Koovies",
+    "slug": "Koovies",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Koovies"
+}
