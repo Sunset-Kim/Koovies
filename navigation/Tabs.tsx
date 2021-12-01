@@ -7,25 +7,28 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from "@expo/vector-icons"
 import { lightTheme, darkTheme } from "../styled";
 
+
 const Tab = createBottomTabNavigator();
 
 const Tabs: React.FC = () => {
   const isDark = useColorScheme() === 'dark';
 
   return (
-    <Tab.Navigator screenOptions={{
-      headerShown: false,
+    <Tab.Navigator sceneContainerStyle={{
+      backgroundColor: !isDark ? lightTheme.backgroundColor : darkTheme.backgroundColor
+    }} screenOptions={{
+      unmountOnBlur: true,
       headerTitleStyle: {
-        color: isDark ? lightTheme.textColor : darkTheme.textColor
+        color: !isDark ? lightTheme.textColor : darkTheme.textColor
       },
       headerStyle: {
-        backgroundColor: isDark ? lightTheme.backgroundColor : darkTheme.backgroundColor,
+        backgroundColor: !isDark ? lightTheme.backgroundColor : darkTheme.backgroundColor,
       },
       tabBarStyle: {
-        backgroundColor: isDark ? lightTheme.backgroundColor : darkTheme.backgroundColor,
+        backgroundColor: !isDark ? lightTheme.backgroundColor : darkTheme.backgroundColor,
       },
-      tabBarActiveTintColor: isDark ? lightTheme.textColor : darkTheme.textColor,
-      tabBarInactiveTintColor: isDark ? lightTheme.foregroundColor : darkTheme.foregroundColor,
+      tabBarActiveTintColor: !isDark ? lightTheme.textColor : darkTheme.textColor,
+      tabBarInactiveTintColor: !isDark ? lightTheme.foregroundColor : darkTheme.foregroundColor,
       tabBarLabelStyle: {
         marginTop: -5,
         fontSize: 13,
